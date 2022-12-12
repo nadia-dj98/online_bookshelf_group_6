@@ -8,10 +8,19 @@ public class Review {
     @Column(name = "rating")
     private StarRating starRating;
 
-    @Column(name = "descriptive review")
+    @Column(name = "descriptive_review")
     private String descriptiveReview;
 
-    // Hi new comment
+
+    @ManyToOne
+    @JoinColumn(name = "reader_id")
+    Reader reader;
+
+    @ManyToOne
+    @JoinColumn(name = "book_id")
+    Book book;
+
+
 
     public Review(StarRating starRating, String descriptiveReview) {
         this.starRating = starRating;

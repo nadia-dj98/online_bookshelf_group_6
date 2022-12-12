@@ -1,10 +1,12 @@
 package com.example.online_bookshelf.models;
 
 import com.example.online_bookshelf.models.Book;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity(name = "readers")
 public class Reader {
@@ -19,17 +21,18 @@ public class Reader {
     @Column(name = "date_of_birth")
     private LocalDate dateOfBirth;
 
-
+    @OneToMany(mappedBy = "reader")
+    @JsonIgnoreProperties({"readers"})
     private List<Book> books;
 
-    public Book(String name, String emailAddress, LocalDate dateOfBirth) {
+    public Reader(String name, String emailAddress, LocalDate dateOfBirth) {
         this.name = name;
         this.emailAddress = emailAddress;
         this.dateOfBirth = dateOfBirth;
         this.books = new ArrayList<>();
     }
 
-    public Book(){}
+    public Reader(){}
 
     public long getId() {
         return id;

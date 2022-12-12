@@ -16,12 +16,13 @@ public class Book {
     private String title;
     @Column(name = "author")
     private String author;
-    @Column(name = "ageRating")
+    @Column(name = "age_rating")
     private int ageRating;
     @Column(name = "genre")
     private String genre;
 
     //join table insert here
+    @OneToMany(mappedBy = "book")
     @JsonIgnoreProperties({"books"})
     private List<Reader> readers;
 
