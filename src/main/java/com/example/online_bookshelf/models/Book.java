@@ -24,7 +24,6 @@ public class Book {
     //join table insert here
     @OneToMany(mappedBy = "book")
     @JsonIgnoreProperties({"book"})
-
     private List<Review> reviews;
 
 
