@@ -5,12 +5,19 @@ import javax.persistence.*;
 @Entity(name = "reviews")
 public class Review {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
     @Column(name = "rating")
     private StarRating starRating;
 
     @Column(name = "descriptive_review")
     private String descriptiveReview;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
 
     @ManyToOne
     @JoinColumn(name = "reader_id")
@@ -21,13 +28,20 @@ public class Review {
     Book book;
 
 
-
     public Review(StarRating starRating, String descriptiveReview) {
         this.starRating = starRating;
         this.descriptiveReview = descriptiveReview;
     }
 
     public Review(){}
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public StarRating getStarRating() {
         return starRating;

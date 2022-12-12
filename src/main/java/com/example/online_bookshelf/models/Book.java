@@ -23,8 +23,8 @@ public class Book {
 
     //join table insert here
     @OneToMany(mappedBy = "book")
-    @JsonIgnoreProperties({"books"})
-    private List<Reader> readers;
+    @JsonIgnoreProperties({"book"})
+    private List<Review> reviews;
 
 
     public Book(String title, String author, int ageRating, String genre) {
@@ -32,7 +32,7 @@ public class Book {
         this.author = author;
         this.ageRating = ageRating;
         this.genre = genre;
-        this.readers = new ArrayList<>();
+        this.reviews = new ArrayList<>();
     }
 
     public Book(){}
@@ -77,11 +77,11 @@ public class Book {
         this.genre = genre;
     }
 
-    public List<Reader> getReaders() {
-        return readers;
+    public List<Review> getReviews() {
+        return reviews;
     }
 
-    public void setReaders(List<Reader> readers) {
-        this.readers = readers;
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
     }
 }
