@@ -1,3 +1,5 @@
+package com.example.online_bookshelf.models;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;

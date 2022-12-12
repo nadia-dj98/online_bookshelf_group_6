@@ -1,3 +1,7 @@
+package com.example.online_bookshelf.models;
+
+import com.example.online_bookshelf.models.Book;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;

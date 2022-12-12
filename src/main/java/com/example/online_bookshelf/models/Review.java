@@ -1,4 +1,4 @@
-package com.example.online_bookshelf;
+package com.example.online_bookshelf.models;
 
 import javax.persistence.*;
 
