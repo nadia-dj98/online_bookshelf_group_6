@@ -21,15 +21,15 @@ public class Reader {
     @Column(name = "date_of_birth")
     private LocalDate dateOfBirth;
 
-    @OneToMany(mappedBy = "reader")
+    @OneToMany(mappedBy = "readers")
     @JsonIgnoreProperties({"readers"})
-    private List<Book> books;
+    private List<Review> review;
 
     public Reader(String name, String emailAddress, LocalDate dateOfBirth) {
         this.name = name;
         this.emailAddress = emailAddress;
         this.dateOfBirth = dateOfBirth;
-        this.books = new ArrayList<>();
+        this.review = new ArrayList<>();
     }
 
     public Reader(){}
@@ -66,11 +66,11 @@ public class Reader {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public List<Book> getBooks() {
-        return books;
+    public List<Review> getReview() {
+        return review;
     }
 
-    public void setBooks(List<Book> books) {
-        this.books = books;
+    public void setReview(List<Review> review) {
+        this.review = review;
     }
 }
