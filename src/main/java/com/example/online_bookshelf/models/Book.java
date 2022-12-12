@@ -24,6 +24,7 @@ public class Book {
     //join table insert here
     @OneToMany(mappedBy = "book")
     @JsonIgnoreProperties({"book"})
+
     private List<Review> reviews;
 
 
@@ -81,7 +82,7 @@ public class Book {
         return reviews;
     }
 
-    public void setReviews(List<Review> readers) {
-        this.reviews = readers;
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
     }
 }

@@ -5,6 +5,10 @@ import javax.persistence.*;
 @Entity(name = "reviews")
 public class Review {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
     @Column(name = "rating")
     private StarRating starRating;
 
@@ -30,6 +34,14 @@ public class Review {
     }
 
     public Review(){}
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public StarRating getStarRating() {
         return starRating;
