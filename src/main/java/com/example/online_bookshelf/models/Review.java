@@ -21,7 +21,6 @@ public class Review {
     Book book;
 
 
-
     public Review(StarRating starRating, String descriptiveReview) {
         this.starRating = starRating;
         this.descriptiveReview = descriptiveReview;
