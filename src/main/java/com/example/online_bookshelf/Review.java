@@ -11,6 +11,8 @@ public class Review {
     @Column(name = "descriptive review")
     private String descriptiveReview;
 
+    // Hi new comment
+
     public Review(StarRating starRating, String descriptiveReview) {
         this.starRating = starRating;
         this.descriptiveReview = descriptiveReview;
