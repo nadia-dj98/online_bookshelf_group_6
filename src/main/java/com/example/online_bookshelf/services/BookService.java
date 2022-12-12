@@ -1,3 +1,5 @@
+package com.example.online_bookshelf.services;
+
 import com.example.online_bookshelf.models.Book;
 import com.example.online_bookshelf.repositories.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,9 +12,6 @@ public class BookService {
 
     @Autowired
     BookRepository bookRepository;
-
-    @Autowired
-    ReaderService readerService;
 
     public Book addBook(Book book) {
         bookRepository.save(book);

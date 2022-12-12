@@ -1,6 +1,9 @@
-package com.example.online_bookshelf;
+package com.example.online_bookshelf.services;
 
+import com.example.online_bookshelf.models.Book;
 import com.example.online_bookshelf.models.Reader;
+import com.example.online_bookshelf.repositories.BookRepository;
+import com.example.online_bookshelf.repositories.ReaderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,10 +17,7 @@ public class ReaderService {
     ReaderRepository readerRepository;
 
     @Autowired
-    BookService bookService;
-
-    @Autowired
-    ReaderService readerService;
+    BookRepository bookRepository;
 
     public List<Reader> displayAllReaders() {
         return readerRepository.findAll();
@@ -33,20 +33,14 @@ public class ReaderService {
         readerRepository.deleteById(id);
     }
 
-    public Reader addBookToCollection(long readerId, long readerId){
-        Reader reader = readerRepository.findById(readerId).get();
-        Book book = bookService.getReaderById(readerId);
-        List<Book> books = reader.getReaders();
-        readers.add(reader);
-        reader.setReaders(books);
-        readerRepository.save(reader);
-        return reader;
-    }
-
     public void updateReaderDetails (long id, String name, String email, LocalDate dateOfBirth){
         Reader reader = readerRepository.findById(id).get();
 
-        reader.set
+        reader.setName(name);
+        reader.setEmailAddress(email);
+        reader.setDateOfBirth(dateOfBirth);
+
+        readerRepository.save(reader);
     }
 
 }

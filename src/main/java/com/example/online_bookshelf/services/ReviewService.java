@@ -1,8 +1,9 @@
-package com.example.online_bookshelf;
+package com.example.online_bookshelf.services;
 
-import com.example.online_bookshelf.models.Reader;
 import com.example.online_bookshelf.models.Review;
 import com.example.online_bookshelf.models.StarRating;
+import com.example.online_bookshelf.repositories.ReviewRepository;
+import com.example.online_bookshelf.services.ReaderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

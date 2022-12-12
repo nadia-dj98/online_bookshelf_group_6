@@ -21,8 +21,8 @@ public class Reader {
     @Column(name = "date_of_birth")
     private LocalDate dateOfBirth;
 
-    @OneToMany(mappedBy = "readers")
-    @JsonIgnoreProperties({"readers"})
+    @OneToMany(mappedBy = "reader")
+    @JsonIgnoreProperties({"reader"})
     private List<Review> reviews;
 
 

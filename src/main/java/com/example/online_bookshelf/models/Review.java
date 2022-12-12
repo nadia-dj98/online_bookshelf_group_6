@@ -15,10 +15,6 @@ public class Review {
     @Column(name = "descriptive_review")
     private String descriptiveReview;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-
     @ManyToOne
     @JoinColumn(name = "reader_id")
     Reader reader;
