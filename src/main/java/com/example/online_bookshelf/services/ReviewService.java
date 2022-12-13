@@ -1,5 +1,7 @@
 package com.example.online_bookshelf.services;
 
+import com.example.online_bookshelf.models.Book;
+import com.example.online_bookshelf.models.Reader;
 import com.example.online_bookshelf.models.Review;
 import com.example.online_bookshelf.models.StarRating;
 import com.example.online_bookshelf.repositories.ReviewRepository;
@@ -20,9 +22,10 @@ public class ReviewService {
     BookService bookService;
 
     // Need to add input for bookId and readerId
-    public void addReview(StarRating rating, String descriptiveReview){
-        Review review = new Review(rating, descriptiveReview);
+    public Review addReview(Review review){
+        //Review review = new Review(rating, descriptiveReview, reader, book);
         reviewRepository.save(review);
+        return review;
     }
 
     public void updateReview(long id, StarRating rating, String descriptiveReview){

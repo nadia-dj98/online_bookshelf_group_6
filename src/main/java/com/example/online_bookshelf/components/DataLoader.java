@@ -3,8 +3,11 @@ package com.example.online_bookshelf.components;
 
 import com.example.online_bookshelf.models.Book;
 import com.example.online_bookshelf.models.Reader;
+import com.example.online_bookshelf.models.Review;
+import com.example.online_bookshelf.models.StarRating;
 import com.example.online_bookshelf.services.BookService;
 import com.example.online_bookshelf.services.ReaderService;
+import com.example.online_bookshelf.services.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -20,6 +23,9 @@ public class DataLoader implements ApplicationRunner {
 
     @Autowired
     BookService bookService;
+
+    @Autowired
+    ReviewService reviewService;
 
     @Override
 
@@ -69,6 +75,9 @@ public class DataLoader implements ApplicationRunner {
         bookService.addBook(toKillAMockingbird);
         Reader bav = new Reader("Bav", "bav.@hotmail.com", LocalDate.of(2000, 01, 25));
         readerService.addNewReader(bav);
+
+        Review ofMiceAndMenReview = new Review(StarRating.FOUR_STAR, "Why did George kill Lenny?", bav, ofMiceAndMen);
+        reviewService.addReview(ofMiceAndMenReview);
 
     }
 

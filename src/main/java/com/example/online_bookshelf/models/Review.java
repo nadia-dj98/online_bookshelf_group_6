@@ -17,16 +17,18 @@ public class Review {
 
     @ManyToOne
     @JoinColumn(name = "reader_id")
-    Reader reader;
+    private Reader reader;
 
     @ManyToOne
     @JoinColumn(name = "book_id")
-    Book book;
+    private Book book;
 
 
-    public Review(StarRating starRating, String descriptiveReview) {
+    public Review(StarRating starRating, String descriptiveReview, Reader reader, Book book) {
         this.starRating = starRating;
         this.descriptiveReview = descriptiveReview;
+        this.reader = reader;
+        this.book = book;
     }
 
     public Review(){}
