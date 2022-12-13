@@ -41,23 +41,7 @@ public class ReviewService {
         reviewRepository.save(review);
     }
 
-    // Overloaded
-    public void updateReview(long id, StarRating rating){
-        Review review = reviewRepository.findById(id).get();
 
-        review.setStarRating(rating);
-
-        reviewRepository.save(review);
-    }
-
-    // Overloaded
-    public void updateReview(long id, String descriptiveReview){
-        Review review = reviewRepository.findById(id).get();
-
-        review.setDescriptiveReview(descriptiveReview);
-
-        reviewRepository.save(review);
-    }
 
     public void deleteReview(long id){
         reviewRepository.deleteById(id);
