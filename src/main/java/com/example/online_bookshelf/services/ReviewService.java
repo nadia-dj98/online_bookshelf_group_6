@@ -22,9 +22,10 @@ public class ReviewService {
     BookService bookService;
 
     // Need to add input for bookId and readerId
-    public void addReview(Review review){
+    public Review addReview(Review review){
         //Review review = new Review(rating, descriptiveReview, reader, book);
         reviewRepository.save(review);
+        return review;
     }
 
     public void updateReview(long id, StarRating rating, String descriptiveReview){
