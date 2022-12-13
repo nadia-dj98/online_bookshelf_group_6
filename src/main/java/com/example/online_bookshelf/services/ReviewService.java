@@ -11,6 +11,8 @@ import com.example.online_bookshelf.services.ReaderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ReviewService {
 
@@ -61,7 +63,9 @@ public class ReviewService {
         reviewRepository.deleteById(id);
     }
 
-
+    public List<Review> displayAllReviews() {
+        return reviewRepository.findAll();
+    }
 
 
 }
