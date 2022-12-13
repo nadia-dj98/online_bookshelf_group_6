@@ -31,11 +31,11 @@ public class ReaderController {
         return new ResponseEntity<>(readers, HttpStatus.OK);
     }
 
-    @PutMapping
-    public ResponseEntity<Reader> updateReader(@RequestBody Reader reader, @PathVariable long id){
-        readerService.updateReaderDetails(id, name, email, dateOfBirth);
-        return new ResponseEntity<>(reader, HttpStatus.OK)
-    }
+//    @PutMapping
+//    public ResponseEntity<Reader> updateReader(@RequestBody Reader reader, @PathVariable long id){
+//        readerService.updateReaderDetails(id, name, email, dateOfBirth);
+//        return new ResponseEntity<>(reader, HttpStatus.OK);
+//    }
 
     @DeleteMapping
     public ResponseEntity<Long> deleteReader(@PathVariable Long id){

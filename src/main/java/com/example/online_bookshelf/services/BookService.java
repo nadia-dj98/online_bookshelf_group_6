@@ -22,15 +22,13 @@ public class BookService {
         return bookRepository.findAll();
     }
 
-    public void updateBookInfo(long id, String title, String author, int ageRating, String genre){
+    public void updateBookInfo(Long id, Book bookParameter){
         Book book = bookRepository.findById(id).get();
-        book.setTitle(title);
-        book.setAuthor(author);
-        book.setAgeRating(ageRating);
-        book.setGenre(genre);
-
+        book.setTitle(bookParameter.getTitle());
+        book.setAuthor(bookParameter.getAuthor());
+        book.setAgeRating(bookParameter.getAgeRating());
+        book.setGenre(bookParameter.getGenre());
         bookRepository.save(book);
-
     }
 
     public void deleteBook(long id) {

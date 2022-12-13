@@ -1,6 +1,7 @@
 package com.example.online_bookshelf.controllers;
 
 import com.example.online_bookshelf.models.Book;
+import com.example.online_bookshelf.repositories.BookRepository;
 import com.example.online_bookshelf.services.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,6 +15,8 @@ import java.util.List;
 public class BookController {
     @Autowired
     BookService bookService;
+    @Autowired
+    BookRepository bookRepository;
 
     @PostMapping
     public ResponseEntity<Book> addNewBook(@RequestBody Book book){
@@ -27,14 +30,15 @@ public class BookController {
         return new ResponseEntity<>(books, HttpStatus.OK);
     }
 
-//    @PutMapping(value = "/{id}")
-//    public ResponseEntity<Book> updateBookInformation(@PathVariable long id, @RequestBody Book book){
-//        bookService.updateBookInfo();
-//
-//    }
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<Book> updateBookInformation(@PathVariable long id, @RequestBody Book book){
+        bookService.updateBookInfo(id, book);
+        return new ResponseEntity<>(bookRepository.findById(id).get(), HttpStatus.OK);
+
+    }
 
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity deleteBook(@PathVariable long id) {
+    public ResponseEntity<Long> deleteBook(@PathVariable long id) {
         bookService.deleteBook(id);
         return new ResponseEntity<>(id, HttpStatus.NO_CONTENT);
     }

@@ -20,9 +20,9 @@ public class ReviewController {
         return new ResponseEntity<>(newReview, HttpStatus.CREATED);
     }
 
-    @GetMapping
-    public ResponseEntity<Review> getReview(@RequestBody long reviewId){
-
-    }
+//    @GetMapping
+//    public ResponseEntity<Review> getReview(@RequestBody long reviewId){
+//
+//    }
 
 }
