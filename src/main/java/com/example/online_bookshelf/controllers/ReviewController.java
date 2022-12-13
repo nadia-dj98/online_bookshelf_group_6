@@ -1,7 +1,9 @@
 package com.example.online_bookshelf.controllers;
 
+import com.example.online_bookshelf.models.Book;
 import com.example.online_bookshelf.models.Reader;
 import com.example.online_bookshelf.models.Review;
+import com.example.online_bookshelf.models.ReviewDTO;
 import com.example.online_bookshelf.services.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,8 +17,8 @@ public class ReviewController {
     ReviewService reviewService;
 
     @PostMapping
-    public ResponseEntity<Review> addNewReview(@RequestBody Review review){
-        Review newReview = reviewService.addReview(review);
+    public ResponseEntity<Review> addNewReview(@RequestBody ReviewDTO reviewDTO){
+        Review newReview = reviewService.addReview(reviewDTO.getStarRating(), reviewDTO.getDescriptiveReview(), reviewDTO.getReaderId(),reviewDTO.getBookId());
         return new ResponseEntity<>(newReview, HttpStatus.CREATED);
     }
 

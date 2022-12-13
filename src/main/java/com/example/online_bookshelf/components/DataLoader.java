@@ -76,8 +76,8 @@ public class DataLoader implements ApplicationRunner {
         Reader bav = new Reader("Bav", "bav.@hotmail.com", LocalDate.of(2000, 01, 25));
         readerService.addNewReader(bav);
 
-        Review ofMiceAndMenReview = new Review(StarRating.FOUR_STAR, "Why did George kill Lenny?", bav, ofMiceAndMen);
-        reviewService.addReview(ofMiceAndMenReview);
+        //Review ofMiceAndMenReview = new Review(, "Why did George kill Lenny?", bav, ofMiceAndMen);
+        reviewService.addReview(StarRating.FOUR_STAR,"Why did George kill Lenny?", bav.getId(), ofMiceAndMen.getId());
 
     }
 

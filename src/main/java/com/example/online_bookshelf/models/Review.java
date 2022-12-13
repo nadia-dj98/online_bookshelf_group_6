@@ -1,5 +1,7 @@
 package com.example.online_bookshelf.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity(name = "reviews")
@@ -16,10 +18,12 @@ public class Review {
     private String descriptiveReview;
 
     @ManyToOne
+    @JsonIgnoreProperties({"reviews"})
     @JoinColumn(name = "reader_id")
     private Reader reader;
 
     @ManyToOne
+    @JsonIgnoreProperties({"reviews"})
     @JoinColumn(name = "book_id")
     private Book book;
 
@@ -55,5 +59,21 @@ public class Review {
 
     public void setDescriptiveReview(String descriptiveReview) {
         this.descriptiveReview = descriptiveReview;
+    }
+
+    public Reader getReader() {
+        return reader;
+    }
+
+    public void setReader(Reader reader) {
+        this.reader = reader;
+    }
+
+    public Book getBook() {
+        return book;
+    }
+
+    public void setBook(Book book) {
+        this.book = book;
     }
 }

@@ -4,6 +4,8 @@ import com.example.online_bookshelf.models.Book;
 import com.example.online_bookshelf.models.Reader;
 import com.example.online_bookshelf.models.Review;
 import com.example.online_bookshelf.models.StarRating;
+import com.example.online_bookshelf.repositories.BookRepository;
+import com.example.online_bookshelf.repositories.ReaderRepository;
 import com.example.online_bookshelf.repositories.ReviewRepository;
 import com.example.online_bookshelf.services.ReaderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,14 +18,14 @@ public class ReviewService {
     ReviewRepository reviewRepository;
 
     @Autowired
-    ReaderService readerService;
+    ReaderRepository readerRepository;
 
     @Autowired
-    BookService bookService;
+    BookRepository bookRepository;
 
     // Need to add input for bookId and readerId
-    public Review addReview(Review review){
-        //Review review = new Review(rating, descriptiveReview, reader, book);
+    public Review addReview(StarRating starRating, String descriptiveReview, long readerId, long bookId){
+        Review review = new Review(starRating, descriptiveReview, readerRepository.findById(readerId).get(), bookRepository.findById(bookId).get());
         reviewRepository.save(review);
         return review;
     }
