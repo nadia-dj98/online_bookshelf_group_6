@@ -1,6 +1,7 @@
 package com.example.online_bookshelf.controllers;
 
 import com.example.online_bookshelf.models.Reader;
+import com.example.online_bookshelf.repositories.ReaderRepository;
 import com.example.online_bookshelf.services.ReaderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,6 +15,9 @@ import java.util.List;
 public class ReaderController {
     @Autowired
     ReaderService readerService;
+
+    @Autowired
+    ReaderRepository readerRepository;
 
     @PostMapping
     public ResponseEntity<Reader> addNewReader(@RequestBody Reader reader) {
@@ -31,20 +35,17 @@ public class ReaderController {
         return new ResponseEntity<>(readers, HttpStatus.OK);
     }
 
-    @PutMapping
-    public ResponseEntity<Reader> updateReader(@RequestBody Reader reader, @PathVariable long id){
-        readerService.updateReaderDetails(id, name, email, dateOfBirth);
-        return new ResponseEntity<>(reader, HttpStatus.OK)
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<Reader> updateReader(@PathVariable long id, @RequestBody Reader reader){
+        readerService.updateReaderDetails(id, reader);
+        return new ResponseEntity<>(readerRepository.findById(id).get(), HttpStatus.OK);
     }
 
-    @DeleteMapping
+    @DeleteMapping(value = "/{id}")
     public ResponseEntity<Long> deleteReader(@PathVariable Long id){
         readerService.deleteReader(id);
         return new ResponseEntity<>(id, HttpStatus.OK);
     }
 
-
-
-    //create- post, read-get, update-put/patch?, delete- delete
 
 }

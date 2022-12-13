@@ -33,13 +33,11 @@ public class ReaderService {
         readerRepository.deleteById(id);
     }
 
-    public void updateReaderDetails (long id, String name, String email, LocalDate dateOfBirth){
+    public void updateReaderDetails (long id, Reader readerParameter){
         Reader reader = readerRepository.findById(id).get();
-
-        reader.setName(name);
-        reader.setEmailAddress(email);
-        reader.setDateOfBirth(dateOfBirth);
-
+        reader.setName(readerParameter.getName());
+        reader.setEmailAddress(readerParameter.getEmailAddress());
+        reader.setDateOfBirth(readerParameter.getDateOfBirth());
         readerRepository.save(reader);
     }
 
