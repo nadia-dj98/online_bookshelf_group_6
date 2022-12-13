@@ -35,6 +35,10 @@ public class BookService {
         bookRepository.deleteById(id);
     }
 
+    public List<Book> findSpecificGenre(String genre){
+        return bookRepository.findByGenre(genre);
+    }
+
 //    public Book addReaderToList(long bookId, long readerId){
 //
 //    }

@@ -24,10 +24,16 @@ public class BookController {
         return new ResponseEntity<>(newBook, HttpStatus.CREATED);
     }
 
+//    @GetMapping
+//    public ResponseEntity<List<Book>> getAllBooks(){
+//        List<Book> books = bookService.displayAllBooks();
+//        return new ResponseEntity<>(books, HttpStatus.OK);
+//    }
+
     @GetMapping
-    public ResponseEntity<List<Book>> getAllBooks(){
-        List<Book> books = bookService.displayAllBooks();
-        return new ResponseEntity<>(books, HttpStatus.OK);
+    public ResponseEntity<List<Book>> getSpecificGenre (
+            @RequestParam (required = false, value = "genre") String genre){
+        return new ResponseEntity<>(bookService.findSpecificGenre(genre), HttpStatus.OK);
     }
 
     @PutMapping(value = "/{id}")
