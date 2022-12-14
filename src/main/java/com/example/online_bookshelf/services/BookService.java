@@ -39,11 +39,7 @@ public class BookService {
         return bookRepository.findByGenre(genre);
     }
 
-//    public Book addReaderToList(long bookId, long readerId){
-//
-//    }
 
-    //filterByGenre method to add
 
 
 

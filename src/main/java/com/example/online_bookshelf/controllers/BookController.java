@@ -33,7 +33,10 @@ public class BookController {
     @GetMapping
     public ResponseEntity<List<Book>> getSpecificGenre (
             @RequestParam (required = false, value = "genre") String genre){
-        return new ResponseEntity<>(bookService.findSpecificGenre(genre), HttpStatus.OK);
+        if(genre != null) {
+            return new ResponseEntity<>(bookService.findSpecificGenre(genre), HttpStatus.OK);
+        }
+        return new ResponseEntity<>(bookService.displayAllBooks(), HttpStatus.OK);
     }
 
     @PutMapping(value = "/{id}")
