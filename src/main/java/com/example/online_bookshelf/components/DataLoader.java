@@ -32,16 +32,20 @@ public class DataLoader implements ApplicationRunner {
         Author maryShelly = new Author("Mary Shelly", LocalDate.of(1797, 8, 30), "United Kingdom", false);
         Author williamGolding = new Author("William Golding", LocalDate.of(1911, 9, 19), "United Kingdom", true);
         Author angieCruz = new Author("Angie Cruz", LocalDate.of(1972,2, 24), "United States of America", false);
+        Author sayakaMurata = new Author("Sayaka Murata", LocalDate.of(1979,8, 14), "Japan", true);
+        Author hanneloreCayre = new Author("Hannelore Cayre", LocalDate.of(1963,2, 24), "France", false);
+
 
         //books
         Book frankenstein = new Book("Frankenstein", maryShelly, 12, "Horror");
         bookService.addBook(frankenstein);
-
         Book lordOfTheFlies = new Book("Lord of the Flies", williamGolding, 15, "Contemporary");
         bookService.addBook(lordOfTheFlies);
-
         Book dominicana = new Book("Dominicana", angieCruz, 15, "Contemporary");
         bookService.addBook(dominicana);
+        Book theGodMother = new Book("The Godmother", hanneloreCayre, 15, "Thriller");
+        bookService.addBook(theGodMother);
+        Book convenienceStoreWoman = new Book("Con")
         //readers
         Reader nadia = new Reader("Nadia", "nadia.dj@hotmail.com", LocalDate.of(1998, 9, 12));
         readerService.addNewReader(nadia);
