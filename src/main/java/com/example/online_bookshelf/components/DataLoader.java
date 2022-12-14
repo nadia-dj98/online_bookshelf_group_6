@@ -2,6 +2,7 @@ package com.example.online_bookshelf.components;
 
 
 import com.example.online_bookshelf.models.*;
+import com.example.online_bookshelf.services.AuthorService;
 import com.example.online_bookshelf.services.BookService;
 import com.example.online_bookshelf.services.ReaderService;
 import com.example.online_bookshelf.services.ReviewService;
@@ -23,6 +24,9 @@ public class DataLoader implements ApplicationRunner {
 
     @Autowired
     ReviewService reviewService;
+    
+    @Autowired
+    AuthorService authorService;
 
     @Override
 
@@ -30,10 +34,15 @@ public class DataLoader implements ApplicationRunner {
 
         //authors
         Author maryShelly = new Author("Mary Shelly", LocalDate.of(1797, 8, 30), "United Kingdom", false);
+        authorService.addNewAuthor(maryShelly);
         Author williamGolding = new Author("William Golding", LocalDate.of(1911, 9, 19), "United Kingdom", true);
+        authorService.addNewAuthor(williamGolding);
         Author angieCruz = new Author("Angie Cruz", LocalDate.of(1972,2, 24), "United States of America", false);
+        authorService.addNewAuthor(angieCruz);
         Author sayakaMurata = new Author("Sayaka Murata", LocalDate.of(1979,8, 14), "Japan", true);
+        authorService.addNewAuthor(sayakaMurata);
         Author hanneloreCayre = new Author("Hannelore Cayre", LocalDate.of(1963,2, 24), "France", false);
+        authorService.addNewAuthor(hanneloreCayre);
 
 
         //books
@@ -45,7 +54,8 @@ public class DataLoader implements ApplicationRunner {
         bookService.addBook(dominicana);
         Book theGodMother = new Book("The Godmother", hanneloreCayre, 15, "Thriller");
         bookService.addBook(theGodMother);
-        Book convenienceStoreWoman = new Book("Con")
+        Book convenienceStoreWoman = new Book("Convenience Store Woman", sayakaMurata, 15, "Literary Fiction");
+        bookService.addBook(convenienceStoreWoman);
         //readers
         Reader nadia = new Reader("Nadia", "nadia.dj@hotmail.com", LocalDate.of(1998, 9, 12));
         readerService.addNewReader(nadia);
@@ -62,9 +72,11 @@ public class DataLoader implements ApplicationRunner {
 
         // amy
       Author andreAciman = new Author("Andre Aciman", LocalDate.of(1951,1,2), "Egypt", true);
-      Author jKRowling = new Author("J.K Rowling", LocalDate.of(1965,7,31), "England", true);
-      Author trentonLeeStewart = new Author("Trenton Lee Stewart", LocalDate.of(1970,5,27), "United States", true);
-
+      authorService.addNewAuthor(andreAciman);
+      Author jKRowling = new Author("J.K Rowling", LocalDate.of(1965,7,31), "United Kingdom", true);
+      authorService.addNewAuthor(jKRowling);
+      Author trentonLeeStewart = new Author("Trenton Lee Stewart", LocalDate.of(1970,5,27), "United States of America", true);
+      authorService.addNewAuthor(trentonLeeStewart);
       Book callMeByYourName = new Book("Call Me By Your Name", andreAciman, 15, "Romance" );
       bookService.addBook(callMeByYourName);
 
@@ -80,8 +92,11 @@ public class DataLoader implements ApplicationRunner {
 
       /// bav
         Author johnBoyne = new Author("John Boyne", LocalDate.of(1971,4,30), "Ireland", true);
+        authorService.addNewAuthor(johnBoyne);
         Author johnSteinbeck = new Author("John Steinbeck", LocalDate.of(1902,2,27), "United States of America", true);
+        authorService.addNewAuthor(johnSteinbeck);
         Author harperLee = new Author("Harper Lee", LocalDate.of(1926,4,28), "United States of America", true);
+        authorService.addNewAuthor(harperLee);
 
         Book boyInStripedPyjamas = new Book("The Boy in the Striped Pyjamas", johnBoyne, 12, "Historical");
         bookService.addBook(boyInStripedPyjamas);
