@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.List;
 
 @Service
@@ -39,6 +40,19 @@ public class ReaderService {
         reader.setEmailAddress(readerParameter.getEmailAddress());
         reader.setDateOfBirth(readerParameter.getDateOfBirth());
         readerRepository.save(reader);
+    }
+
+    public int calculateAgeInYears(long id){
+        Reader reader = readerRepository.findById(id).get();
+        LocalDate birthDate = reader.getDateOfBirth();
+        LocalDate currentDate = LocalDate.now();
+        return Period.between(birthDate, currentDate).getYears();
+    }
+
+
+    public List <Book> getAgeAppropriateBooks(long id) {
+        Integer readerAge = calculateAgeInYears(id);
+        return bookRepository.findByAgeRatingLessThanEqual(readerAge);
     }
 
 }
