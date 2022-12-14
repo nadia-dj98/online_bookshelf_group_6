@@ -1,6 +1,7 @@
 package com.example.online_bookshelf.controllers;
 
 import com.example.online_bookshelf.models.Book;
+import com.example.online_bookshelf.models.BookDTO;
 import com.example.online_bookshelf.repositories.BookRepository;
 import com.example.online_bookshelf.services.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +20,8 @@ public class BookController {
     BookRepository bookRepository;
 
     @PostMapping
-    public ResponseEntity<Book> addNewBook(@RequestBody Book book){
-        Book newBook = bookService.addBook(book);
+    public ResponseEntity<Book> addNewBook(@RequestBody BookDTO bookDTO){
+        Book newBook = bookService.addBook(bookDTO);
         return new ResponseEntity<>(newBook, HttpStatus.CREATED);
     }
 
@@ -35,8 +36,8 @@ public class BookController {
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<Book> updateBookInformation(@PathVariable long id, @RequestBody Book book){
-        bookService.updateBookInfo(id, book);
+    public ResponseEntity<Book> updateBookInformation(@PathVariable long id, @RequestBody BookDTO bookDTO){
+        bookService.updateBookInfo(id, bookDTO);
         return new ResponseEntity<>(bookRepository.findById(id).get(), HttpStatus.OK);
 
     }

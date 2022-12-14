@@ -34,6 +34,14 @@ public class Author {
         this.books = new ArrayList<>();
     }
 
+    public Author(String name, int yearOfBirth, int monthOfBirth, int dayOfBirth, String country, boolean bestseller) {
+        this.name = name;
+        this.dateOfBirth = LocalDate.of(yearOfBirth, monthOfBirth, dayOfBirth);
+        this.country = country;
+        this.bestseller = bestseller;
+        this.books = new ArrayList<>();
+    }
+
     public Author(){}
 
     public long getId() {

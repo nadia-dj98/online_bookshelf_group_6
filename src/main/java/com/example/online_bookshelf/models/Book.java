@@ -39,6 +39,13 @@ public class Book {
         this.reviews = new ArrayList<>();
     }
 
+    public Book(String title, int ageRating, String genre) {
+        this.title = title;
+        this.ageRating = ageRating;
+        this.genre = genre;
+        this.reviews = new ArrayList<>();
+    }
+
     public Book(){}
 
     public long getId() {

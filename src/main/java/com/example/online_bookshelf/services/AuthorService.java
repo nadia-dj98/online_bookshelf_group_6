@@ -26,8 +26,12 @@ public class AuthorService {
         return author;
     }
 
-    public void deleteAuthor(long id) {
-        authorRepository.deleteById(id);
+    public boolean deleteAuthor(long id) {
+        if (authorRepository.findById(id).get().getBooks().isEmpty()) {
+            authorRepository.deleteById(id);
+            return true;
+        }
+        return false;
     }
 
     public void updateAuthorDetails(long id, Author authorParameter) {

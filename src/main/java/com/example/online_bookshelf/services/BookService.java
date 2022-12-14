@@ -1,6 +1,8 @@
 package com.example.online_bookshelf.services;
 
 import com.example.online_bookshelf.models.Book;
+import com.example.online_bookshelf.models.BookDTO;
+import com.example.online_bookshelf.repositories.AuthorRepository;
 import com.example.online_bookshelf.repositories.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,7 +15,16 @@ public class BookService {
     @Autowired
     BookRepository bookRepository;
 
+    @Autowired
+    AuthorRepository authorRepository;
+
     public Book addBook(Book book) {
+        bookRepository.save(book);
+        return book;
+    }
+
+    public Book addBook(BookDTO bookDTO) {
+        Book book = new Book(bookDTO.getTitle(), authorRepository.findById(bookDTO.getAuthorId()).get(), bookDTO.getAgeRating(), bookDTO.getGenre());
         bookRepository.save(book);
         return book;
     }
@@ -22,12 +33,12 @@ public class BookService {
         return bookRepository.findAll();
     }
 
-    public void updateBookInfo(Long id, Book bookParameter){
+    public void updateBookInfo(Long id, BookDTO bookParameter){
         Book book = bookRepository.findById(id).get();
         book.setTitle(bookParameter.getTitle());
-        book.setAuthor(bookParameter.getAuthor());
         book.setAgeRating(bookParameter.getAgeRating());
         book.setGenre(bookParameter.getGenre());
+        book.setAuthor(authorRepository.findById(bookParameter.getAuthorId()).get());
         bookRepository.save(book);
     }
 

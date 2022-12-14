@@ -65,6 +65,9 @@ public class DataLoader implements ApplicationRunner {
         readerService.addNewReader(sarah);
         Reader noorah = new Reader("Noorah", "noorah.dj@hotmail.com", LocalDate.of(2001, 01, 1));
         readerService.addNewReader(noorah);
+        
+        //reviews
+//         reviewService.addReview(StarRating.THREE_STAR,"Why did George kill Lenny?", bav.getId(), frankenstein.getId());
 
 
 
