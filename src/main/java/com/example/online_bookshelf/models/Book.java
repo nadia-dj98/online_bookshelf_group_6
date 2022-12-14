@@ -14,8 +14,12 @@ public class Book {
     private long id;
     @Column(name = "title")
     private String title;
-    @Column(name = "author")
-    private String author;
+
+    @ManyToOne
+    @JsonIgnoreProperties({"books"})
+    @JoinColumn(name = "author_id")
+    private Author author;
+
     @Column(name = "age_rating")
     private int ageRating;
     @Column(name = "genre")
@@ -27,7 +31,7 @@ public class Book {
     private List<Review> reviews;
 
 
-    public Book(String title, String author, int ageRating, String genre) {
+    public Book(String title, Author author, int ageRating, String genre) {
         this.title = title;
         this.author = author;
         this.ageRating = ageRating;
@@ -53,11 +57,11 @@ public class Book {
         this.title = title;
     }
 
-    public String getAuthor() {
+    public Author getAuthor() {
         return author;
     }
 
-    public void setAuthor(String author) {
+    public void setAuthor(Author author) {
         this.author = author;
     }
 
