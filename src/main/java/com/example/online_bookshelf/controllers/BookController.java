@@ -24,11 +24,6 @@ public class BookController {
         return new ResponseEntity<>(newBook, HttpStatus.CREATED);
     }
 
-//    @GetMapping
-//    public ResponseEntity<List<Book>> getAllBooks(){
-//        List<Book> books = bookService.displayAllBooks();
-//        return new ResponseEntity<>(books, HttpStatus.OK);
-//    }
 
     @GetMapping
     public ResponseEntity<List<Book>> getSpecificGenre (

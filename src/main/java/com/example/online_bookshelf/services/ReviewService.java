@@ -34,10 +34,8 @@ public class ReviewService {
 
     public void updateReview(long id, StarRating rating, String descriptiveReview){
         Review review = reviewRepository.findById(id).get();
-
         review.setStarRating(rating);
         review.setDescriptiveReview(descriptiveReview);
-
         reviewRepository.save(review);
     }
 

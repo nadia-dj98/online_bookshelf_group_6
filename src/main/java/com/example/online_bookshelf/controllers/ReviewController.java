@@ -31,12 +31,6 @@ public class ReviewController {
         return new ResponseEntity<>(reviews, HttpStatus.OK);
     }
 
-//    @PatchMapping(value = "/{id}")
-//    public ResponseEntity<Review> updateReview(@PathVariable long id, @RequestBody String descriptiveReview){
-//        reviewService.updateReview(id, descriptiveReview);
-//        return new ResponseEntity<>(reviewRepository.findById(id).get(), HttpStatus.OK);
-//    }
-
     @PatchMapping(value = "/{id}")
     public ResponseEntity<Review> updateReview(@PathVariable long id, @RequestBody StarRating starRating, @RequestBody String descriptiveReview){
         reviewService.updateReview(id, starRating, descriptiveReview);
