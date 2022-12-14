@@ -19,18 +19,18 @@ public class Author {
     private LocalDate dateOfBirth;
     @Column(name = "country_of_origin")
     private String country;
-    @Column(name = "english_translation_available")
-    private boolean englishTranslationAvailable;
+    @Column(name = "bestseller")
+    private boolean bestseller;
 
     @OneToMany(mappedBy = "author")
     @JsonIgnoreProperties({"author"})
     private List<Book> books;
 
-    public Author(String name, LocalDate dateOfBirth, String country, boolean englishTranslationAvailable) {
+    public Author(String name, LocalDate dateOfBirth, String country, boolean bestseller) {
         this.name = name;
         this.dateOfBirth = dateOfBirth;
         this.country = country;
-        this.englishTranslationAvailable = englishTranslationAvailable;
+        this.bestseller = bestseller;
         this.books = new ArrayList<>();
     }
 
@@ -68,12 +68,12 @@ public class Author {
         this.country = country;
     }
 
-    public boolean isEnglishTranslationAvailable() {
-        return englishTranslationAvailable;
+    public boolean isBestseller() {
+        return bestseller;
     }
 
-    public void setEnglishTranslationAvailable(boolean englishTranslationAvailable) {
-        this.englishTranslationAvailable = englishTranslationAvailable;
+    public void setBestseller(boolean bestseller) {
+        this.bestseller = bestseller;
     }
 
     public List<Book> getBooks() {
