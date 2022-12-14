@@ -38,7 +38,7 @@ public class BookDTO {
 
     public void setGenre(String genre) {
         this.genre = genre;
-    }git p
+    }
 
     public long getAuthorId() {
         return authorId;
