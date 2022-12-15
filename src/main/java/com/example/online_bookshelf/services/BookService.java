@@ -2,11 +2,14 @@ package com.example.online_bookshelf.services;
 
 import com.example.online_bookshelf.models.Book;
 import com.example.online_bookshelf.models.BookDTO;
+import com.example.online_bookshelf.models.Review;
 import com.example.online_bookshelf.repositories.AuthorRepository;
 import com.example.online_bookshelf.repositories.BookRepository;
+import com.example.online_bookshelf.repositories.ReviewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,6 +21,9 @@ public class BookService {
 
     @Autowired
     AuthorRepository authorRepository;
+
+    @Autowired
+    ReviewRepository reviewRepository;
 
     public Book addBook(Book book) {
         bookRepository.save(book);
@@ -48,6 +54,7 @@ public class BookService {
     }
 
     public void deleteBook(long id) {
+        List<Review> reviewsToDelete = reviewRepository.findByBook(bookRepository.findById(id).get());
         bookRepository.deleteById(id);
     }
 
