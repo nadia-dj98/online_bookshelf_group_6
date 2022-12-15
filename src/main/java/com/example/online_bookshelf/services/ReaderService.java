@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ReaderService {
@@ -22,6 +23,10 @@ public class ReaderService {
 
     public List<Reader> displayAllReaders() {
         return readerRepository.findAll();
+    }
+    
+    public Optional<Reader> findReaderById(long id) {
+        return readerRepository.findById(id);
     }
 
     public Reader addNewReader(Reader reader) {

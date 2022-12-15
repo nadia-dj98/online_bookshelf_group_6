@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/authors")
@@ -25,6 +26,12 @@ public class AuthorController {
     public ResponseEntity<List<Author>> getAllAuthors(){
         List<Author> authors = authorService.displayAllAuthors();
         return new ResponseEntity<>(authors, HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<Optional<Author>> getAuthorById(@PathVariable long id){
+        Optional<Author> author = authorService.findAuthorById(id);
+        return new ResponseEntity<>(author, HttpStatus.OK);
     }
 
     @PostMapping

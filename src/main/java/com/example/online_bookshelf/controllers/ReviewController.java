@@ -3,12 +3,14 @@ package com.example.online_bookshelf.controllers;
 import com.example.online_bookshelf.models.*;
 import com.example.online_bookshelf.repositories.ReviewRepository;
 import com.example.online_bookshelf.services.ReviewService;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/reviews")
@@ -29,6 +31,11 @@ public class ReviewController {
     public ResponseEntity<List<Review>> getAllReviews(){
         List<Review> reviews = reviewService.displayAllReviews();
         return new ResponseEntity<>(reviews, HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<Optional<Review>> getReviewById(@PathVariable long id){
+        return new ResponseEntity<>(reviewService.findReviewById(id), HttpStatus.OK);
     }
 
     @PatchMapping(value = "/{id}")
