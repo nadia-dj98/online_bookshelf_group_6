@@ -23,7 +23,7 @@ public class ReviewController {
 
     @PostMapping
     public ResponseEntity<Review> addNewReview(@RequestBody ReviewDTO reviewDTO){
-        Review newReview = reviewService.addReview(reviewDTO.getStarRating(), reviewDTO.getDescriptiveReview(), reviewDTO.getReaderId(),reviewDTO.getBookId());
+        Review newReview = reviewService.addReview(reviewDTO);
         return new ResponseEntity<>(newReview, HttpStatus.CREATED);
     }
 
@@ -39,8 +39,8 @@ public class ReviewController {
     }
 
     @PatchMapping(value = "/{id}")
-    public ResponseEntity<Review> updateReview(@PathVariable long id, @RequestBody StarRating starRating, @RequestBody String descriptiveReview){
-        reviewService.updateReview(id, starRating, descriptiveReview);
+    public ResponseEntity<Review> updateReview(@PathVariable long id, @RequestBody ReviewDTO reviewDTO){
+        reviewService.updateReview(id, reviewDTO.getStarRating(), reviewDTO.getDescriptiveReview());
         return new ResponseEntity<>(reviewRepository.findById(id).get(), HttpStatus.OK);
     }
 

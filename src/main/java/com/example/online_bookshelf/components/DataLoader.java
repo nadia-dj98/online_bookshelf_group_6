@@ -105,15 +105,15 @@ public class DataLoader implements ApplicationRunner {
         readerService.addNewReader(bav);
         
         //reviews
-        reviewService.addReview(StarRating.FOUR_STAR,"Why did George kill Lenny?", bav.getId(), ofMiceAndMen.getId());
-        reviewService.addReview(StarRating.FIVE_STAR, "Brought me back to my childhood", amy.getId(), harryPotterPhilosophers.getId());
-        reviewService.addReview(StarRating.TWO_STAR, "The film was better", nadia.getId(), callMeByYourName.getId());
-        reviewService.addReview(StarRating.FOUR_STAR, "this novel is charmingly eccentric and the idiosyncrasies of the prose unfurl an odd, hauntingly beautiful story", nadia.getId(), convenienceStoreWoman.getId());
-        reviewService.addReview(StarRating.FIVE_STAR, "Loved it", nadia.getId(), frankenstein.getId());
-        reviewService.addReview(StarRating.ONE_STAR, "I hate it, so boring", bav.getId(), toKillAMockingbird.getId());
-        reviewService.addReview(StarRating.THREE_STAR, "A quirky and fun read but 'Lemony Snicket's A series of unfortunate events' was better", yasmine.getId(), mysteriousBenedictSociety.getId());
-        reviewService.addReview(StarRating.THREE_STAR, "meh", yasmine.getId(), harryPotterGoblet.getId());
-        reviewService.addReview(StarRating.FIVE_STAR, "Best book to ever to written", noorah.getId(), harryPotterGoblet.getId());
+        reviewService.addReview(new ReviewDTO(StarRating.FOUR_STAR,"Why did George kill Lenny?", bav.getId(), ofMiceAndMen.getId()));
+        reviewService.addReview(new ReviewDTO(StarRating.FIVE_STAR, "Brought me back to my childhood", amy.getId(), harryPotterPhilosophers.getId()));
+        reviewService.addReview(new ReviewDTO(StarRating.TWO_STAR, "The film was better", nadia.getId(), callMeByYourName.getId()));
+        reviewService.addReview(new ReviewDTO(StarRating.FOUR_STAR, "this novel is charmingly eccentric and the idiosyncrasies of the prose unfurl an odd, hauntingly beautiful story", nadia.getId(), convenienceStoreWoman.getId()));
+        reviewService.addReview(new ReviewDTO(StarRating.FIVE_STAR, "Loved it", nadia.getId(), frankenstein.getId()));
+        reviewService.addReview(new ReviewDTO(StarRating.ONE_STAR, "I hate it, so boring", bav.getId(), toKillAMockingbird.getId()));
+        reviewService.addReview(new ReviewDTO(StarRating.THREE_STAR, "A quirky and fun read but 'Lemony Snicket's A series of unfortunate events' was better", yasmine.getId(), mysteriousBenedictSociety.getId()));
+        reviewService.addReview(new ReviewDTO(StarRating.THREE_STAR, "meh", yasmine.getId(), harryPotterGoblet.getId()));
+        reviewService.addReview(new ReviewDTO(StarRating.FIVE_STAR, "Best book to ever to written", noorah.getId(), harryPotterGoblet.getId()));
     }
 
 
