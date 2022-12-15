@@ -55,6 +55,9 @@ public class BookService {
 
     public void deleteBook(long id) {
         List<Review> reviewsToDelete = reviewRepository.findByBook(bookRepository.findById(id).get());
+        for (Review review : reviewsToDelete) {
+            reviewRepository.deleteById(review.getId());
+        }
         bookRepository.deleteById(id);
     }
 
