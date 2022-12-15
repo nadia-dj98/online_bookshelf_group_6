@@ -103,6 +103,8 @@ public class DataLoader implements ApplicationRunner {
         readerService.addNewReader(amy);
         Reader bav = new Reader("Bav", "bav.@hotmail.com", LocalDate.of(2000, 01, 25));
         readerService.addNewReader(bav);
+        Reader davis = new Reader("Davis", "dave@yahoo.com", LocalDate.of(2007, 03, 15));
+        readerService.addNewReader(davis);
         
         //reviews
         reviewService.addReview(new ReviewDTO(StarRating.FOUR_STAR,"Why did George kill Lenny?", bav.getId(), ofMiceAndMen.getId()));
@@ -114,6 +116,7 @@ public class DataLoader implements ApplicationRunner {
         reviewService.addReview(new ReviewDTO(StarRating.THREE_STAR, "A quirky and fun read but 'Lemony Snicket's A series of unfortunate events' was better", yasmine.getId(), mysteriousBenedictSociety.getId()));
         reviewService.addReview(new ReviewDTO(StarRating.THREE_STAR, "meh", yasmine.getId(), harryPotterGoblet.getId()));
         reviewService.addReview(new ReviewDTO(StarRating.FIVE_STAR, "Best book to ever to written", noorah.getId(), harryPotterGoblet.getId()));
+        reviewService.addReview(new ReviewDTO(StarRating.FIVE_STAR, "Don't tell anyone I read this book!", davis.getId(), howToKillYourFamily.getId()));
     }
 
 
