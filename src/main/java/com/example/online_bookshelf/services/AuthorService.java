@@ -43,4 +43,12 @@ public class AuthorService {
         authorRepository.save(author);
     }
 
+    public List<Author> findSpecificAuthor(String authorName) {
+        return authorRepository.findByNameLike(authorName);
+    }
+
+    public List<Author> findAuthorByCountry(String country) {
+        return authorRepository.findByCountryLike(country);
+    }
+
 }
