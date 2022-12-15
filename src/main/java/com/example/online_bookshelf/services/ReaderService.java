@@ -2,8 +2,10 @@ package com.example.online_bookshelf.services;
 
 import com.example.online_bookshelf.models.Book;
 import com.example.online_bookshelf.models.Reader;
+import com.example.online_bookshelf.models.Review;
 import com.example.online_bookshelf.repositories.BookRepository;
 import com.example.online_bookshelf.repositories.ReaderRepository;
+import com.example.online_bookshelf.repositories.ReviewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +22,9 @@ public class ReaderService {
 
     @Autowired
     BookRepository bookRepository;
+    
+    @Autowired
+    ReviewRepository reviewRepository;
 
     public List<Reader> displayAllReaders() {
         return readerRepository.findAll();
@@ -35,7 +40,11 @@ public class ReaderService {
     }
 
     public void deleteReader(long id) {
-
+        
+        List<Review> reviewsToDelete = reviewRepository.findByReader(readerRepository.findById(id).get());
+        for (Review review : reviewsToDelete) {
+            reviewRepository.deleteById(review.getId());
+        }
         readerRepository.deleteById(id);
     }
 
