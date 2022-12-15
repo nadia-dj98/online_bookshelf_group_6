@@ -49,11 +49,9 @@ public class AuthorService {
     }
 
     public List<Author> findSpecificAuthor(String authorName) {
-        return authorRepository.findByNameLike(authorName);
+        return authorRepository.findByNameContainingIgnoreCase(authorName);
     }
 
-    public List<Author> findAuthorByCountry(String country) {
-        return authorRepository.findByCountryLike(country);
-    }
+
 
 }

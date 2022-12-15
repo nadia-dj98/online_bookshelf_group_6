@@ -23,7 +23,10 @@ public class AuthorController {
     AuthorRepository authorRepository;
 
     @GetMapping
-    public ResponseEntity<List<Author>> getAllAuthors(){
+    public ResponseEntity<List<Author>> getAllAuthorsOrSpecificAuthor(@RequestParam(required = false, value ="author") String author){
+        if(author != null){
+            return new ResponseEntity<>(authorService.findSpecificAuthor(author), HttpStatus.OK);
+        }
         List<Author> authors = authorService.displayAllAuthors();
         return new ResponseEntity<>(authors, HttpStatus.OK);
     }

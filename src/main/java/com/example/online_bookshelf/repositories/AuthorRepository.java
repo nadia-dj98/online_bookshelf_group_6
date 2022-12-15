@@ -6,7 +6,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface AuthorRepository extends JpaRepository<Author, Long> {
-    List<Author> findByNameLike(String likeString);
-    List<Author> findByCountryLike(String likeCountry);
+        List<Author> findByNameContainingIgnoreCase(String likeString);
+
+
 
 }
