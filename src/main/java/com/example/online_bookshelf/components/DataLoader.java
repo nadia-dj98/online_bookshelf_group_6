@@ -43,6 +43,18 @@ public class DataLoader implements ApplicationRunner {
         authorService.addNewAuthor(sayakaMurata);
         Author hanneloreCayre = new Author("Hannelore Cayre", LocalDate.of(1963,2, 24), "France", false);
         authorService.addNewAuthor(hanneloreCayre);
+        Author andreAciman = new Author("Andre Aciman", LocalDate.of(1951,1,2), "Egypt", true);
+        authorService.addNewAuthor(andreAciman);
+        Author jKRowling = new Author("J.K Rowling", LocalDate.of(1965,7,31), "United Kingdom", true);
+        authorService.addNewAuthor(jKRowling);
+        Author trentonLeeStewart = new Author("Trenton Lee Stewart", LocalDate.of(1970,5,27), "United States of America", true);
+        authorService.addNewAuthor(trentonLeeStewart);
+        Author johnBoyne = new Author("John Boyne", LocalDate.of(1971,4,30), "Ireland", true);
+        authorService.addNewAuthor(johnBoyne);
+        Author johnSteinbeck = new Author("John Steinbeck", LocalDate.of(1902,2,27), "United States of America", true);
+        authorService.addNewAuthor(johnSteinbeck);
+        Author harperLee = new Author("Harper Lee", LocalDate.of(1926,4,28), "United States of America", true);
+        authorService.addNewAuthor(harperLee);
 
 
         //books
@@ -56,6 +68,13 @@ public class DataLoader implements ApplicationRunner {
         bookService.addBook(theGodMother);
         Book convenienceStoreWoman = new Book("Convenience Store Woman", sayakaMurata, 15, "Literary Fiction");
         bookService.addBook(convenienceStoreWoman);
+        Book callMeByYourName = new Book("Call Me By Your Name", andreAciman, 15, "Romance" );
+        bookService.addBook(callMeByYourName);
+        Book harryPotter = new Book("Harry Potter and the Philosopher's Stone", jKRowling, 11, "Fantasy");
+        bookService.addBook(harryPotter);
+        Book mysteriousBenedictSociety = new Book("Mysterious Benedict Society", trentonLeeStewart, 11, "Adventure");
+        bookService.addBook(mysteriousBenedictSociety);
+
         //readers
         Reader nadia = new Reader("Nadia", "nadia.dj@hotmail.com", LocalDate.of(1998, 9, 12));
         readerService.addNewReader(nadia);
@@ -65,42 +84,8 @@ public class DataLoader implements ApplicationRunner {
         readerService.addNewReader(sarah);
         Reader noorah = new Reader("Noorah", "noorah.dj@hotmail.com", LocalDate.of(2001, 01, 1));
         readerService.addNewReader(noorah);
-        
-        //reviews
-//         reviewService.addReview(StarRating.THREE_STAR,"Why did George kill Lenny?", bav.getId(), frankenstein.getId());
-
-
-
-
-
-        // amy
-      Author andreAciman = new Author("Andre Aciman", LocalDate.of(1951,1,2), "Egypt", true);
-      authorService.addNewAuthor(andreAciman);
-      Author jKRowling = new Author("J.K Rowling", LocalDate.of(1965,7,31), "United Kingdom", true);
-      authorService.addNewAuthor(jKRowling);
-      Author trentonLeeStewart = new Author("Trenton Lee Stewart", LocalDate.of(1970,5,27), "United States of America", true);
-      authorService.addNewAuthor(trentonLeeStewart);
-      Book callMeByYourName = new Book("Call Me By Your Name", andreAciman, 15, "Romance" );
-      bookService.addBook(callMeByYourName);
-
-      Book harryPotter = new Book("Harry Potter and the Philosopher's Stone", jKRowling, 11, "Fantasy");
-      bookService.addBook(harryPotter);
-
-      Book mysteriousBenedictSociety = new Book("Mysterious Benedict Society", trentonLeeStewart, 11, "Adventure");
-      bookService.addBook(mysteriousBenedictSociety);
-
-      Reader amy = new Reader("Amy", "amy@hotmail.com", LocalDate.of(1999, 4, 3));
-      readerService.addNewReader(amy);
-
-
-      /// bav
-        Author johnBoyne = new Author("John Boyne", LocalDate.of(1971,4,30), "Ireland", true);
-        authorService.addNewAuthor(johnBoyne);
-        Author johnSteinbeck = new Author("John Steinbeck", LocalDate.of(1902,2,27), "United States of America", true);
-        authorService.addNewAuthor(johnSteinbeck);
-        Author harperLee = new Author("Harper Lee", LocalDate.of(1926,4,28), "United States of America", true);
-        authorService.addNewAuthor(harperLee);
-
+        Reader amy = new Reader("Amy", "amy@hotmail.com", LocalDate.of(1999, 4, 3));
+        readerService.addNewReader(amy);
         Book boyInStripedPyjamas = new Book("The Boy in the Striped Pyjamas", johnBoyne, 12, "Historical");
         bookService.addBook(boyInStripedPyjamas);
         Book ofMiceAndMen = new Book("Of Mice and Men", johnSteinbeck, 15, "Tragedy");
@@ -109,8 +94,9 @@ public class DataLoader implements ApplicationRunner {
         bookService.addBook(toKillAMockingbird);
         Reader bav = new Reader("Bav", "bav.@hotmail.com", LocalDate.of(2000, 01, 25));
         readerService.addNewReader(bav);
-
-        //Review ofMiceAndMenReview = new Review(, "Why did George kill Lenny?", bav, ofMiceAndMen);
+        
+        //reviews
+//         reviewService.addReview(StarRating.THREE_STAR,"Why did George kill Lenny?", bav.getId(), frankenstein.getId());
         reviewService.addReview(StarRating.FOUR_STAR,"Why did George kill Lenny?", bav.getId(), ofMiceAndMen.getId());
 
     }
