@@ -55,7 +55,8 @@ public class DataLoader implements ApplicationRunner {
         authorService.addNewAuthor(johnSteinbeck);
         Author harperLee = new Author("Harper Lee", LocalDate.of(1926,4,28), "United States of America", true);
         authorService.addNewAuthor(harperLee);
-
+        Author bellaMackie = new Author("Bella Mackie", LocalDate.of(1983,7,28), "United Kingdom", true);
+        authorService.addNewAuthor(bellaMackie);
 
         //books
         Book frankenstein = new Book("Frankenstein", maryShelly, 12, "Horror");
@@ -70,10 +71,24 @@ public class DataLoader implements ApplicationRunner {
         bookService.addBook(convenienceStoreWoman);
         Book callMeByYourName = new Book("Call Me By Your Name", andreAciman, 15, "Romance" );
         bookService.addBook(callMeByYourName);
-        Book harryPotter = new Book("Harry Potter and the Philosopher's Stone", jKRowling, 11, "Fantasy");
-        bookService.addBook(harryPotter);
+        Book harryPotterPhilosophers = new Book("Harry Potter and the Philosopher's Stone", jKRowling, 11, "Fantasy");
+        bookService.addBook(harryPotterPhilosophers);
+        Book harryPotterChamber = new Book("Harry Potter and the Chamber of Secrets", jKRowling, 11, "Fantasy");
+        bookService.addBook(harryPotterChamber);
+        Book harryPotterPrisoner = new Book("Harry Potter and the Prisoner of Azkaban", jKRowling, 11, "Fantasy");
+        bookService.addBook(harryPotterPrisoner);
+        Book harryPotterGoblet = new Book("Harry Potter and the Goblet of Fire", jKRowling, 11, "Fantasy");
+        bookService.addBook(harryPotterGoblet);
         Book mysteriousBenedictSociety = new Book("Mysterious Benedict Society", trentonLeeStewart, 11, "Adventure");
         bookService.addBook(mysteriousBenedictSociety);
+        Book boyInStripedPyjamas = new Book("The Boy in the Striped Pyjamas", johnBoyne, 12, "Historical");
+        bookService.addBook(boyInStripedPyjamas);
+        Book ofMiceAndMen = new Book("Of Mice and Men", johnSteinbeck, 15, "Tragedy");
+        bookService.addBook(ofMiceAndMen);
+        Book toKillAMockingbird = new Book("To Kill a Mockingbird", harperLee, 12, "Southern Gothic");
+        bookService.addBook(toKillAMockingbird);
+        Book howToKillYourFamily = new Book("How To Kill Your Family", bellaMackie, 18, "Dark Comedy");
+        bookService.addBook(howToKillYourFamily);
 
         //readers
         Reader nadia = new Reader("Nadia", "nadia.dj@hotmail.com", LocalDate.of(1998, 9, 12));
@@ -86,19 +101,19 @@ public class DataLoader implements ApplicationRunner {
         readerService.addNewReader(noorah);
         Reader amy = new Reader("Amy", "amy@hotmail.com", LocalDate.of(1999, 4, 3));
         readerService.addNewReader(amy);
-        Book boyInStripedPyjamas = new Book("The Boy in the Striped Pyjamas", johnBoyne, 12, "Historical");
-        bookService.addBook(boyInStripedPyjamas);
-        Book ofMiceAndMen = new Book("Of Mice and Men", johnSteinbeck, 15, "Tragedy");
-        bookService.addBook(ofMiceAndMen);
-        Book toKillAMockingbird = new Book("To Kill a Mockingbird", harperLee, 12, "Southern Gothic");
-        bookService.addBook(toKillAMockingbird);
         Reader bav = new Reader("Bav", "bav.@hotmail.com", LocalDate.of(2000, 01, 25));
         readerService.addNewReader(bav);
         
         //reviews
-//         reviewService.addReview(StarRating.THREE_STAR,"Why did George kill Lenny?", bav.getId(), frankenstein.getId());
         reviewService.addReview(StarRating.FOUR_STAR,"Why did George kill Lenny?", bav.getId(), ofMiceAndMen.getId());
-
+        reviewService.addReview(StarRating.FIVE_STAR, "Brought me back to my childhood", amy.getId(), harryPotterPhilosophers.getId());
+        reviewService.addReview(StarRating.TWO_STAR, "The film was better", nadia.getId(), callMeByYourName.getId());
+        reviewService.addReview(StarRating.FOUR_STAR, "this novel is charmingly eccentric and the idiosyncrasies of the prose unfurl an odd, hauntingly beautiful story", nadia.getId(), convenienceStoreWoman.getId());
+        reviewService.addReview(StarRating.FIVE_STAR, "Loved it", nadia.getId(), frankenstein.getId());
+        reviewService.addReview(StarRating.ONE_STAR, "I hate it, so boring", bav.getId(), toKillAMockingbird.getId());
+        reviewService.addReview(StarRating.THREE_STAR, "A quirky and fun read but 'Lemony Snicket's A series of unfortunate events' was better", yasmine.getId(), mysteriousBenedictSociety.getId());
+        reviewService.addReview(StarRating.THREE_STAR, "meh", yasmine.getId(), harryPotterGoblet.getId());
+        reviewService.addReview(StarRating.FIVE_STAR, "Best book to ever to written", noorah.getId(), harryPotterGoblet.getId());
     }
 
 
