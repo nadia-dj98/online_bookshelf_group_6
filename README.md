@@ -6,6 +6,9 @@
 ---
 ## Project Summary
 For our back-end project we have created an API that allows book lovers to review their favourite books. To build this we used Java, SpringBoot, and Postgres SQL.
+
+Members: Amy, Nadia and Bav
+
 ---
 ## Project Aims
 We decided that our API was to include entities for **books**, **readers** and **reviews**, allowing readers to leave reviews on books: this would constitute a **one-to-many** relationship between readers and reviews, as well as between books and reviews.
@@ -26,14 +29,14 @@ Upon completion of the MVP, further features were implemented as **extensions**.
 - Created a book and review DTO to allow transfer of information via requests
 ---
 ## ERD and UML Diagrams
-### Below we created an ERD and UML diagram to define the relationships between our different classes.
+#### Below we created an ERD and UML diagram to define the relationships between our different classes.
 ![Diagram](./Diagrams%20/UML_ERD_Diagrams.jpeg)
 ---
 ## Installation instructions:
 
 1. Clone this repository : `git clone git@github.com:nadia-dj98/online_bookshelf_group_6.git `
 2. Create a database called bookshelf_api: `createdb bookshelf_api`
-
+3. Make sure you've installed [Postman](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwixpaujxP77AhVwQkEAHTHkAzIQFnoECAoQAQ&url=https%3A%2F%2Fwww.postman.com%2F&usg=AOvVaw05sjAjE_hbftSn2Ii8YG6N) and postgres which  can be installed via home brew: `brew install postgresql` or via the [postgres website.](https://www.postgresql.org)
 ## Postman requests
 To interact with the API, use POSTMAN and the following requests, replacing {id} with an id number
 
