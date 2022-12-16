@@ -62,7 +62,7 @@ public class BookService {
     }
 
     public List<Book> findSpecificGenre(String genre){
-        return bookRepository.findByGenre(genre);
+        return bookRepository.findByGenreContainingIgnoreCase(genre);
     }
 
 
