@@ -30,7 +30,7 @@ Upon completion of the MVP, further features were implemented as **extensions**.
 ---
 ## ERD and UML Diagrams
 #### Below we created an ERD and UML diagram to define the relationships between our different classes.
-![Diagram](./Diagrams%20/Presentations/UML_ERD_Diagrams.jpeg)
+![Diagram](./Diagrams%20/Presentations%20/UML_ERD_Diagrams.jpeg)
 ---
 ## Installation instructions:
 
